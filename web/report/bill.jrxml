@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bill" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="aaea3ae4-beed-4fc0-b3df-779f8925b9b9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="52"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="billId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[-1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_bills.`id` AS tbl_bills_id,
+     tbl_bills.`user` AS tbl_bills_user,
+     tbl_bills.`totalprice` AS tbl_bills_totalprice,
+     tbl_bills.`status` AS tbl_bills_status,
+     tbl_bills.`date` AS tbl_bills_date,
+     tbl_bills.`month` AS tbl_bills_month,
+     tbl_bills.`year` AS tbl_bills_year,
+     tbl_ctbills.`id` AS tbl_ctbills_id,
+     tbl_ctbills.`idBills` AS tbl_ctbills_idBills,
+     tbl_ctbills.`idItems` AS tbl_ctbills_idItems,
+     tbl_ctbills.`idsize` AS tbl_ctbills_idsize,
+     tbl_ctbills.`number` AS tbl_ctbills_number,
+     tbl_ctbills.`price` AS tbl_ctbills_price,
+     tbl_ctbills.`img` AS tbl_ctbills_img,
+     tbl_size.`id` AS tbl_size_id,
+     tbl_size.`size` AS tbl_size_size,
+     tbl_trademark.`id` AS tbl_trademark_id,
+     tbl_trademark.`trademark` AS tbl_trademark_trademark,
+     tbl_trademark.`img` AS tbl_trademark_img,
+     tbl_type.`id` AS tbl_type_id,
+     tbl_type.`type` AS tbl_type_type,
+     tbl_type.`img` AS tbl_type_img,
+     tbl_user.`id` AS tbl_user_id,
+     tbl_user.`username` AS tbl_user_username,
+     tbl_user.`email` AS tbl_user_email,
+     tbl_user.`password` AS tbl_user_password,
+     tbl_user.`address` AS tbl_user_address,
+     tbl_user.`phone` AS tbl_user_phone,
+     tbl_user.`img` AS tbl_user_img,
+     tbl_items.`id` AS tbl_items_id,
+     tbl_items.`idtrademark` AS tbl_items_idtrademark,
+     tbl_items.`Idtype` AS tbl_items_Idtype,
+     tbl_items.`price` AS tbl_items_price,
+     tbl_items.`number` AS tbl_items_number,
+     tbl_items.`img` AS tbl_items_img,
+     tbl_bills.`sale` AS tbl_bills_sale
+FROM
+     `tbl_bills` tbl_bills INNER JOIN `tbl_user` tbl_user ON tbl_bills.`user` = tbl_user.`email`
+     INNER JOIN `tbl_ctbills` tbl_ctbills ON tbl_bills.`id` = tbl_ctbills.`idBills`
+     INNER JOIN `tbl_items` tbl_items ON tbl_ctbills.`idItems` = tbl_items.`id`
+     INNER JOIN `tbl_size` tbl_size ON tbl_ctbills.`idsize` = tbl_size.`id`
+     INNER JOIN `tbl_trademark` tbl_trademark ON tbl_items.`idtrademark` = tbl_trademark.`id`
+     INNER JOIN `tbl_type` tbl_type ON tbl_items.`Idtype` = tbl_type.`id`
+WHERE
+     tbl_bills.`id` = $P{billId}]]>
+	</queryString>
+	<field name="tbl_bills_id" class="java.lang.Integer"/>
+	<field name="tbl_bills_user" class="java.lang.String"/>
+	<field name="tbl_bills_totalprice" class="java.lang.Integer"/>
+	<field name="tbl_bills_status" class="java.lang.Integer"/>
+	<field name="tbl_bills_date" class="java.lang.String"/>
+	<field name="tbl_bills_month" class="java.lang.String"/>
+	<field name="tbl_bills_year" class="java.lang.String"/>
+	<field name="tbl_ctbills_id" class="java.lang.Integer"/>
+	<field name="tbl_ctbills_idBills" class="java.lang.Integer"/>
+	<field name="tbl_ctbills_idItems" class="java.lang.Integer"/>
+	<field name="tbl_ctbills_idsize" class="java.lang.Integer"/>
+	<field name="tbl_ctbills_number" class="java.lang.Integer"/>
+	<field name="tbl_ctbills_price" class="java.lang.Integer"/>
+	<field name="tbl_ctbills_img" class="java.lang.String"/>
+	<field name="tbl_size_id" class="java.lang.Integer"/>
+	<field name="tbl_size_size" class="java.lang.String"/>
+	<field name="tbl_trademark_id" class="java.lang.Integer"/>
+	<field name="tbl_trademark_trademark" class="java.lang.String"/>
+	<field name="tbl_trademark_img" class="java.lang.String"/>
+	<field name="tbl_type_id" class="java.lang.Integer"/>
+	<field name="tbl_type_type" class="java.lang.String"/>
+	<field name="tbl_type_img" class="java.lang.String"/>
+	<field name="tbl_user_id" class="java.lang.Integer"/>
+	<field name="tbl_user_username" class="java.lang.String"/>
+	<field name="tbl_user_email" class="java.lang.String"/>
+	<field name="tbl_user_password" class="java.lang.String"/>
+	<field name="tbl_user_address" class="java.lang.String"/>
+	<field name="tbl_user_phone" class="java.lang.String"/>
+	<field name="tbl_user_img" class="java.lang.String"/>
+	<field name="tbl_items_id" class="java.lang.Integer"/>
+	<field name="tbl_items_idtrademark" class="java.lang.String"/>
+	<field name="tbl_items_Idtype" class="java.lang.String"/>
+	<field name="tbl_items_price" class="java.lang.Integer"/>
+	<field name="tbl_items_number" class="java.lang.Integer"/>
+	<field name="tbl_items_img" class="java.lang.String"/>
+	<field name="tbl_bills_sale" class="java.lang.Integer"/>
+	<group name="tbl_user_username">
+		<groupExpression><![CDATA[$F{tbl_user_username}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="167" y="16" width="549" height="24" forecolor="#000000" uuid="2f19418f-b9a6-4cb2-b148-aacf8d3913e2"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbl_user_username}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="97" y="16" width="108" height="24" uuid="d2fd8955-b37e-48f9-80e6-e8655a8aa7de"/>
+					<textElement>
+						<font size="15"/>
+					</textElement>
+					<text><![CDATA[Customer:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<frame>
+					<reportElement mode="Opaque" x="632" y="0" width="150" height="30" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="422337ce-2c1e-4de0-971b-9a9ef8fe37da"/>
+					<staticText>
+						<reportElement x="142" y="10" width="3" height="20" uuid="f2e4da9a-0cdd-4c96-9026-1f7ae9e28103"/>
+						<textElement>
+							<font size="15"/>
+						</textElement>
+						<text><![CDATA[$]]></text>
+					</staticText>
+				</frame>
+				<textField>
+					<reportElement style="SubTitle" x="748" y="10" width="595" height="20" uuid="9d53df70-de8f-4e5e-9534-c5ffb05cfa73"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbl_bills_totalprice}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="669" y="10" width="108" height="20" uuid="edbc778d-60bf-4802-bc0f-af4e076049a0"/>
+					<textElement>
+						<font size="15"/>
+					</textElement>
+					<text><![CDATA[Total Price:]]></text>
+				</staticText>
+				<frame>
+					<reportElement mode="Opaque" x="423" y="0" width="150" height="30" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="38db1ca4-4c9e-4636-8ad5-8701800aa4c5"/>
+					<staticText>
+						<reportElement x="16" y="10" width="108" height="20" uuid="9289c66c-75d3-44ef-a63f-8791750e209e"/>
+						<textElement>
+							<font size="15"/>
+						</textElement>
+						<text><![CDATA[Sale:  ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="98" y="10" width="26" height="20" uuid="abfdac8f-ab69-45ba-a3bc-3aa878e9997b"/>
+						<textElement>
+							<font size="15"/>
+						</textElement>
+						<text><![CDATA[   %]]></text>
+					</staticText>
+					<textField>
+						<reportElement style="SubTitle" x="63" y="10" width="87" height="20" uuid="220e3c2a-a0dd-4fb6-a008-6266f6b41ef1"/>
+						<textElement>
+							<font size="16" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{tbl_bills_sale}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="tbl_bills_totalprice">
+		<groupExpression><![CDATA[$F{tbl_bills_totalprice}]]></groupExpression>
+		<groupHeader>
+			<band height="30"/>
+		</groupHeader>
+	</group>
+	<group name="tbl_items_id">
+		<groupExpression><![CDATA[$F{tbl_items_id}]]></groupExpression>
+	</group>
+	<background>
+		<band height="575" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="8903f04e-30e1-4ec5-af87-c80d9653bd24"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="65d14c99-5de7-4db7-a4e6-17236cf3a2dc"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="5be08a34-207c-4adc-9dce-67e9e8c9fb68"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="bd516b9e-3066-4305-97bd-2a13050c83ce"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="8bb834e7-2b49-4402-9473-9712d02696e6"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="509240e6-9bd2-422f-8832-3f8187d3b3d7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Shop QT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="1fea45ed-a3df-4684-aca3-9604b215e879"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[The Bill]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="aaea7bce-5e59-4c07-b836-5e4dbb5c3953"/>
+				<staticText>
+					<reportElement style="Column header" x="108" y="0" width="141" height="15" uuid="43f3732f-b64d-4d89-8627-a6ed18a6d54d"/>
+					<text><![CDATA[Trademark]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="249" y="0" width="141" height="15" uuid="a315d16e-d5e3-42c9-bec2-64d6c6ae80e6"/>
+					<text><![CDATA[Type]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="390" y="0" width="141" height="15" uuid="7ea9726c-9272-47c3-b7a6-122a24bf6116"/>
+					<text><![CDATA[Size]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="531" y="0" width="89" height="15" uuid="18719eeb-ea94-44ec-9147-8b5fa0c5f14c"/>
+					<text><![CDATA[Quantity]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="620" y="0" width="85" height="15" uuid="3cf37ae8-c78d-498a-835e-aa69bd8caa1b"/>
+					<text><![CDATA[Price]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="108" height="15" uuid="4e6402e5-fec5-4d79-a69f-bff2df3f4d9e"/>
+					<text><![CDATA[Item]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="7ee6ca6e-48e5-4c46-ad1a-924699b67ac9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="f0b62782-d99c-4993-b875-b98856293243"/>
+			</frame>
+			<textField>
+				<reportElement style="Detail" x="204" y="0" width="141" height="15" uuid="1c9fee26-13a0-4714-8db6-726763feaa6e"/>
+				<textFieldExpression><![CDATA[$F{tbl_trademark_trademark}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="345" y="0" width="141" height="15" uuid="6d97cd32-aeb7-47a8-81e4-bb011201f8dd"/>
+				<textFieldExpression><![CDATA[$F{tbl_type_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="486" y="0" width="141" height="15" uuid="3f670fbc-167c-4b41-b6a9-6660ed47d834"/>
+				<textFieldExpression><![CDATA[$F{tbl_size_size}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="627" y="0" width="90" height="15" uuid="531358d1-b6df-41db-a766-b0ba234877c2"/>
+				<textFieldExpression><![CDATA[$F{tbl_ctbills_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="716" y="0" width="85" height="15" uuid="c8f08ef2-d183-4166-b5b3-76b0404cd51a"/>
+				<textFieldExpression><![CDATA[$F{tbl_ctbills_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="96" y="0" width="108" height="15" uuid="342e8042-c529-4832-b794-ef4717d43a03"/>
+				<textFieldExpression><![CDATA[$F{tbl_items_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="745" y="0" width="32" height="15" uuid="f5af4d5d-3fcc-484d-9b8d-05e83553b408"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="dc64a643-aa32-415f-922c-8dd81dec328f"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="3e5dde23-dd4a-4a57-9e0c-e25e66a37e03"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

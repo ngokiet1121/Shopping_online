@@ -1,0 +1,445 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 15, 2015, 4:28:23 PM
+    Author     : ADMIN
+*/
+body {
+    padding-top:70px ; 
+    margin: 0 auto; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background: url(../img/anh-nen.jpg);
+}
+.slide-image {
+    width: 100%;
+    height: 200px;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+.banner{
+    height: 270px;
+    margin-bottom: 10px;
+}
+.banner img{
+    width: 1119px;
+    height: 270px;
+}
+.banner h1{
+    position: relative;
+    top: -270px;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    top: 50px;
+    left:35%;
+    padding: 0px 15px 13px 15px;
+    border-radius: 10px;
+    background: #fff;
+}
+.close {
+    background: #000000;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: 12px;
+    text-align: center;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}   
+
+.infomation{
+    width: 200px;
+    height: 250px; 
+    background-color: #ccc;
+    float: left;
+    margin-right: 17px;
+    margin-left: 13px;
+}
+
+/*style for product container*/
+.product_list_wrapper {
+    margin: 0 auto;
+    float: left;
+}
+.product_list {
+    float: left;
+    margin-left: 22px;
+}
+.product_list > li {
+    border:1px solid #ddd;
+    border-top:0;
+    border-left: 0;
+    border-right: 0;
+    float: left;
+    height: 332px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    width: 210px; 
+}
+.orange {
+    background-color: #ff8a00;
+
+}
+.product_list  li span.badge {
+    color: #fff;
+    float: left;
+    height: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 0 5px;
+    position: absolute;
+    right: 5px;
+    text-transform: uppercase;
+    top: 5px;
+    z-index: 10;
+}
+.product_list_wrapper .product_list > li {
+    cursor: pointer;
+}
+.product_list_wrapper .product_list > li div.img {
+    overflow: hidden;
+    padding-top: 10px;
+    text-align: center;
+    width: 200px;
+}
+.product_list_wrapper .product_list > li div.name {
+    padding: 10px;
+    position: absolute;
+    vertical-align: bottom;
+    bottom: 0;
+}
+.product_list_wrapper .product_list > li div.name h3 {
+    color: #333;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+}
+.product_list_wrapper .product_list > li div.price_list{
+    bottom: 5px;
+    left: 10px;
+    width: 179px;
+    z-index: 10;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1em;
+}
+.product_list_wrapper .product_list >li:hover  .more_info{
+    top: 10px;
+}
+.product_list_wrapper .product_list >li .more_info {
+    background-color: #f8f8f8;
+    display: block;
+    height: 313px;
+    left: 0;
+    top: 220px;
+    padding: 5px;
+    position: absolute;
+    width: 200px;
+    z-index: 11;
+    transition: all 300ms ease 100ms; /*tao animation hieu ung*/
+    -webkit-transition: all 300ms ease 100ms;
+}
+.product_list_wrapper .product_list >li .more_info h3 {
+    color: #666;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.product_list_wrapper .product_list >li .more_info ul li {
+    border: 0;
+    color: #666;
+    float: left;
+    font-size: 12px;
+    height: auto;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+
+}
+.product_list_wrapper .product_list >li .more_info .promotion {
+    color: red;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td {
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control {
+        width:20%;
+        display: inline !important;
+    }
+    .actions .btn {
+        width:36%;
+        margin:1.5em 0;
+    }
+    .actions .btn-info {
+        float:left;
+    }
+    .actions .btn-danger {
+        float:right;
+    }
+    table#cart thead {
+        display: none;
+    }
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width:320px;
+    }
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
+    table#cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
+    }
+    table#cart tfoot td {
+        display:block;
+    }
+    table#cart tfoot td .btn {
+        display:block;
+    }
+}
+
+.thumbnail {
+    position:relative;
+    overflow:hidden;
+}
+.caption {
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(66, 139, 202, 0.75);
+    width:100%;
+    height:100%;
+    padding:2%;
+    display: none;
+    text-align:center;
+    color:#fff !important;
+    z-index:2;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 900px;
+    position: relative;
+    right: 75px;
+}
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+.nav-tabs li {
+    margin-bottom: 0;
+    position: initial;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    border-width: 0;
+}
+.nav-tabs > li > a {
+    border: none;
+    color: #999;
+    margin: 0;
+}
+.nav-tabs > li.active > a {
+    border: none;
+    color: #E91E63 !important;
+    background: transparent;
+}
+.nav-tabs > li > a:hover {
+    background: transparent;
+}
+.tab-content {
+    padding: 20px;
+}
+#magic-line {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: #E91E63;
+}
+.describe{
+    width: 810px;
+    height: 600px;
+}
+.hamt{
+    width: 500px;
+    height: 600px;
+    float:left;
+}
+.hamt img{
+    width: 100%;
+    height: 100%;
+}
+.information{
+    width:342px;
+    height: 600px;
+    background: #f0f0f0;
+    float:right;
+    margin-top: -600px;
+}
+.information2{
+    width: 315px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.code h6{
+    color: #6f6f6f;
+    font-weight: normal;
+    line-height: 26px;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+.prices{
+    margin-top: 30px;
+}
+.price{
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.usd{
+    color: #6f6f6f;
+}
+.free-ship{
+    margin-top: 20px;
+}
+.size label{
+    text-transform: uppercase;
+    margin: 14px 0 8px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.size input{
+    float: left;
+    clear: both;
+    border: 5px solid #dfdfdf;
+    width: 45px !important;
+    height: 35px;
+    background-color: #f9f7fa;
+    text-align: center;
+
+    position: relative;
+    top: 40px;
+
+}
+.sizeha{
+    width: 338px;
+    height:35px;
+    margin-top: 10px;
+
+}
+.sizeha img{
+    border: #dfdfdf 5px solid;
+    width: 25px;
+    height: 25px;
+}
+.quantity label{
+    float: left;
+    line-height: 40px;
+}
+.quantity input{
+    float: left;
+    clear: both;
+    border: 5px solid #dfdfdf;
+    width: 25px !important;
+    height: 25px;
+    background-color: #f9f7fa;
+    text-align: center;
+    margin-right: 20px;
+}
+.sizebutton{
+    background-color: #fff;
+    border: #dfdfdf 5px solid;
+    width: 50px;
+    height: 35px;
+    cursor: pointer;
+}
+.banner2 img{
+    width: 1349px;
+    height: 194px;
+    margin-bottom: 30px;
+}
